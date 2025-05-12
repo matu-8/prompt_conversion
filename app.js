@@ -1,22 +1,24 @@
 let opciones,menu, pesos;
 const precioUSD = 1300;
 let history = []
-//     tipo : divisa,
-//     entrada = '1300 ARG',
-//     salida= '1 USD',
-//     fecha = new date().ToLocaleString()
-// function convertCurrency (pesos){
-//     return precioUSD*pesos;
-// }
+
+//Creación de funciones 'conversion de pesos a usd'.
 function convertCurrency(pesos){
  return pesos/precioUSD;
 }
+//Creación del bucle con opciones de cliente.
 do {
-opciones = prompt ('¿Desea realizar una conversion? \n 1)Si \n 2)No');
+opciones =parseFloat(prompt ('¿Desea realizar una conversion? \n 1)Si \n 2)No'));
 switch (opciones){
-   case '1': 
+   case 1: 
     pesos = prompt('Ingrese cantidad en pesos');
-    alert('El momnto ingresado es de '+ convertCurrency(pesos).toFixed(2)+ 'USD');
+    alert('El monto ingresado es de '+ convertCurrency(pesos).toFixed(2)+ 'USD');
+    history.push({
+    tipo : 'divisa',
+    entrada : pesos,
+    salida: convertCurrency(pesos).toFixed(2)+'USD',
+    fecha :new Date().toLocaleString()}) //Imprime la fecha en el array de salida. 
 }
 }
-while(opciones!='2');
+while(opciones!=2);
+console.log(history);
