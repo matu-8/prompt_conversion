@@ -22,7 +22,7 @@ switch (opciones){
      
 }
 //Evalúa si las opciones ingresadas son correctas, sino alerta de un error
-if (opciones > 2 && opciones <1){ 
+if (opciones != 2 && opciones != 1){ 
     alert ('El valor que ingresó es inválido, porfavor seleccione 1 o 2');
 }
 }
